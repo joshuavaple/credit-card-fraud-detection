@@ -11,3 +11,4 @@ seaborn==0.13.2
 xgboost==2.1.4 # compatibility tested
 pandas==2.2.3 # compatibility tested
 ipykernel
+pydantic==2.8.2
