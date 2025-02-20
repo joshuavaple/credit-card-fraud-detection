@@ -1,0 +1,14 @@
+# graphviz==0.19.1
+imbalanced-learn==0.8.1
+# jupyter==1.0.0
+# jupyter-book==0.12.1
+matplotlib==3.10.0
+pandarallel==1.5.4
+scikit-learn
+seaborn==0.13.2
+# torch>=1.10.1
+# avoid installing numpy separately as it is already installed by pandas
+xgboost==2.1.4 # compatibility tested
+pandas==2.2.3 # compatibility tested
+ipykernel
+pydantic==2.8.2
