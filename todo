@@ -1,0 +1,13 @@
+[ ] Bring hard-coded numbers in fraud scenarios, such as `txn_value_increment` , out as user-defined arguments
+
+[ ] Create a time-dependent Poisson distribution (non-homogeneous) to model the transactions during peak and low periods in a day, with total sum of period means equal to the daily mean.
+
+[ ] Write a reader-friendly explanation of the "reverse engineering" logic: manually create features > create transactions > recreate features > model.
+
+[ ] When generating transactions for many customers, instead of assuming the next customer is randomly picked from the profiles below, use a more weighted method so that the chance of getting high-income is lower than middle income.
+
+    ```
+    profile_name = random.choice(group_profiles["name"])
+    ```
+
+    
