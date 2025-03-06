@@ -9,5 +9,6 @@
     ```
     profile_name = random.choice(group_profiles["name"])
     ```
-
-    
+[ ] Develop the concept of "propensity to fraud exposure":
+    [ ] Customer features: age group, income group (related to spending group), 2FA enabled (OTPs or biometrics)
+    [ ] Payment features: decreasing risk CNP > Digital Wallet > POS. Research on the fraud rates and do reasonable reverse engineering
