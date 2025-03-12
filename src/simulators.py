@@ -35,7 +35,7 @@ class UUIDGenerator:
         id = prefix + str(uuid.uuid4().hex)[: self.id_length] + suffix
         return id
 
-class GroupProfiles(BaseModel):
+class SppendingHabits(BaseModel):
     name: List[str]
     txn_mean_low: List[float]
     txn_mean_high: List[float]
@@ -154,13 +154,13 @@ class Customer:
 
 
 class CustomerGenerator:
-    def __init__(self, group_profiles: dict):
+    def __init__(self, spending_habits: dict):
         """
         Initialize the CustomerGenerator with a dictionary of group profiles.
 
         Parameters:
         -----------
-        group_profiles: dict
+        spending_habits: dict
             A dictionary containing the group profiles for generating customer transactions.
             The dictionary must have the following structure where the key names and their value types are compulsory:
             {
@@ -173,22 +173,22 @@ class CustomerGenerator:
             }
 
         """
-        # validate the group_profiles
+        # validate the spending_habits
         try:
-            GroupProfiles(**group_profiles)
+            SppendingHabits(**spending_habits)
         except ValidationError as e:
-            raise ValueError(f"Invalid group_profiles data: {e}")
+            raise ValueError(f"Invalid spending_habits data: {e}")
 
-        self.group_profiles = self._convert_col_to_row_oriented_profile(
-            group_profiles, "name"
+        self.spending_habits = self._convert_col_to_row_oriented_profile(
+            spending_habits, "name"
         )
 
     def generate_customer_from_profile(self, profile_name: str):
         """
         Generate a customer object with a specific profile, modelled from the chosen profile name
         """
-        assert profile_name in self.group_profiles.keys(), "Profile name not found"
-        profile = self.group_profiles[profile_name]
+        assert profile_name in self.spending_habits.keys(), "Profile name not found"
+        profile = self.spending_habits[profile_name]
         txn_mean = round(
             np.random.uniform(profile["txn_mean_low"], profile["txn_mean_high"]), 2
         )
